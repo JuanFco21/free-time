@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 
-Route::get('/login', function () {
-    return view('frontend.auth.login');
-});
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard.index');
-});
+Route::get('/iniciar-sesion', [HomeController::class, 'login'])->name('frontend.login');

@@ -9,32 +9,36 @@
                     <div class="card mx-auto" style="max-width: 380px;">
                         <div class="card-body">
                             <h3 class="card-title text-center mt-4 mb-4">Iniciar Sesión</h3>
-                            <form action="#">
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
                                 <div class="form-group mb-3">
                                     <label for="email">Correo Electrónico</label>
-                                    <input id="email" class="form-control" placeholder="Escribre tu correo electrónico"
-                                        type="text">
+                                    <input name="email" class="form-control" placeholder="Escribre tu correo electrónico"
+                                        type="text" autofocus>
+                                        @error('email')
+                                            <code>{{ $message }}</code>
+                                        @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Contraseña</label>
-                                    <input id="password" class="form-control" placeholder="Escribre tu contraseña"
+                                    <input name="password" class="form-control" placeholder="Escribre tu contraseña"
                                         type="password">
                                 </div>
                                 <div class="text-center">
                                     <div class="form-group">
                                         <a href="#" class="">¿Olvidaste tu contraseña?</a>
-
                                     </div>
                                     <div class="form-group">
                                         <label class="custom-control custom-checkbox"> <input type="checkbox"
-                                                class="custom-control-input" checked="">
+                                                class="custom-control-input" name="remember">
                                             <span class="custom-control-label"> Recuérdame </span>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <a type="button" href="sesion.html" class="btn btn-primary btn-block"> Iniciar Sesión
-                                    </a>
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        Iniciar Sesión
+                                    </button>
                                 </div>
                             </form>
                         </div>
