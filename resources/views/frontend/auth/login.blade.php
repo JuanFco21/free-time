@@ -13,16 +13,17 @@
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="email">Correo Electrónico</label>
-                                    <input name="email" class="form-control" placeholder="Escribre tu correo electrónico"
-                                        type="text" autofocus>
+                                    <input type="text" name="email" class="form-control" placeholder="Escribre tu correo electrónico">
                                         @error('email')
                                             <code>{{ $message }}</code>
                                         @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Contraseña</label>
-                                    <input name="password" class="form-control" placeholder="Escribre tu contraseña"
-                                        type="password">
+                                    <input  type="password" name="password" class="form-control" placeholder="Escribre tu contraseña">
+                                        @error('password')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                                 <div class="text-center">
                                     <div class="form-group">

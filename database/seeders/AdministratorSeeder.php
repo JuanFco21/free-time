@@ -17,13 +17,33 @@ class AdministratorSeeder extends Seeder
     public function run(): void
     {
         DB::table('administrators')->insert([
-            'name' => 'Juan Francisco',
-            'last_name' => 'Salas Alba',
-            'image' => 'photo.jpg',
-            'gender'=> Gender::MALE->value,
-            'status'=> Status::ACTIVE->value,
-            'email' => 'test@gmail.com',
-            'password' => Hash::make('12345'),
+            [
+                'name' => 'SuperAdministrador',
+                'last_name' => 'superadmin',
+                'image' => 'avatar-5.png',
+                'gender' => Gender::MALE->value,
+                'status' => Status::ACTIVE->value,
+                'email' => 'superadmin@gmail.com',
+                'password' => Hash::make('12345'),
+            ],
+            [
+                'name' => 'Administrador',
+                'last_name' => 'admin',
+                'image' => 'avatar-5.png',
+                'gender' => Gender::MALE->value,
+                'status' => Status::ACTIVE->value,
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('12345'),
+            ],
+            [
+                'name' => 'Journalist',
+                'last_name' => 'journalist',
+                'image' => 'avatar-5.png',
+                'gender' => Gender::MALE->value,
+                'status' => Status::ACTIVE->value,
+                'email' => 'journalist@gmail.com',
+                'password' => Hash::make('12345'),
+            ],
         ]);
     }
 }

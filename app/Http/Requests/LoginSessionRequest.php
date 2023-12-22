@@ -34,11 +34,22 @@ class LoginSessionRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+     public function messages(): array
+    {
+        return [
+            'email.required' => 'El campo email es obligatorio.',
+            'email.email' => 'Por favor, introduce un email válido.',
+            'email.max' => 'No puede haber un email con mas de 255 caracteres.',
+            'password.required' => 'El campo contraseña es obligatorio.',
+        ];
+    }
+    
     public function authenticate(): void
     {
         if (!Auth::guard('admin')->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             throw ValidationException::withMessages([
-                'email' => 'These credentials do not match our records.',
+                'email' => 'El correo y/o contraseña son incorrectos.',
             ]);
         }
     }

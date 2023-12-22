@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('last_name');
-            $table->string('image', 100);
+            $table->string('image', 100)->nullable();
             $table->enum('gender', ['Masculino', 'Femenino'])->default(Gender::MALE->value);
             $table->enum('status', ['Activo', 'Inactivo'])->default(Status::ACTIVE->value);
             $table->string('email')->unique();
