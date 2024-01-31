@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Administrator;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\AdministratorRequest;
 
@@ -12,10 +13,16 @@ class AdministratorController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['permission:usuarios.index'])->only(['index']);
-        $this->middleware(['permission:usuarios.create'])->only(['create', 'store']);
-        $this->middleware(['permission:usuarios.edit'])->only(['edit', 'update']);
-        $this->middleware(['permission:usuarios.destroy'])->only(['destroy']);
+        if (Auth::guard('admin')->check()) {
+            $this->middleware(['permission:usuarios.index'])->only(['index']);
+            $this->middleware(['permission:usuarios.create'])->only(['create', 'store']);
+            $this->middleware(['permission:usuarios.edit'])->only(['edit', 'update']);
+            $this->middleware(['permission:usuarios.destroy'])->only(['destroy']);
+        } else {
+            return response()->json([
+                'message' => 'Not Authorized',
+            ], 401);
+        }
     }
 
     public function index()

@@ -43,24 +43,26 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        @if (Auth::guard('admin')->check() &&
-                                                Auth::guard('admin')->user()->can('roles.edit'))
-                                            <a href="{{ route('role.edit', $role->id) }}" class="btn btn-warning">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                        @endif
-                                        @if (Auth::guard('admin')->check() &&
-                                                Auth::guard('admin')->user()->can('roles.destroy'))
-                                            <div class="d-inline-block">
-                                                <form method="POST" action="{{ route('role.destroy', $role->id) }}">
-                                                    @method('DELETE')
-                                                    @csrf
-                                                    <button type="button" class="btn btn-danger delete-item"><i
-                                                            class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        @endif
+                                        <div class="d-inline-block text-nowrap">
+                                            @if (Auth::guard('admin')->check() &&
+                                                    Auth::guard('admin')->user()->can('roles.edit'))
+                                                <a href="{{ route('role.edit', $role->id) }}" class="btn btn-warning">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            @endif
+                                            @if (Auth::guard('admin')->check() &&
+                                                    Auth::guard('admin')->user()->can('roles.destroy'))
+                                                <div class="d-inline-block">
+                                                    <form method="POST" action="{{ route('role.destroy', $role->id) }}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="button" class="btn btn-danger delete-item"><i
+                                                                class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            @endif
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
