@@ -11,7 +11,7 @@
                 <h4>{{ __('Administradores') }}</h4>
                 <div class="card-header-action">
                     @if (Auth::guard('admin')->check() &&
-                            Auth::guard('admin')->user()->can('usuarios.create'))
+                            Auth::guard('admin')->user()->can('users.create'))
                         <a href="{{ route('administrator.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus"></i> {{ __('Crear nuevo administrador') }}
                         </a>
@@ -62,19 +62,19 @@
                                         @if ($administrator->status === App\Enums\Status::ACTIVE)
                                             <div class="badge badge-success">{{ $administrator->status }}</div>
                                         @elseif ($administrator->status === App\Enums\Status::INACTIVE)
-                                            <div class="badge badge-success">{{ $administrator->status }}</div>
+                                            <div class="badge badge-danger">{{ $administrator->status }}</div>
                                         @endif
                                     </td>
                                     <td>
                                         @if (Auth::guard('admin')->check() &&
-                                                Auth::guard('admin')->user()->can('usuarios.edit'))
+                                                Auth::guard('admin')->user()->can('users.edit'))
                                             <a href="{{ route('administrator.edit', $administrator->id) }}"
                                                 class="btn btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                         @endif
                                         @if (Auth::guard('admin')->check() &&
-                                                Auth::guard('admin')->user()->can('usuarios.destroy'))
+                                                Auth::guard('admin')->user()->can('users.destroy'))
                                             <div class="d-inline-block">
                                                 <form method="POST"
                                                     action="{{ route('administrator.destroy', $administrator->id) }}">

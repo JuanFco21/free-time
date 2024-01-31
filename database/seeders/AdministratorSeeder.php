@@ -6,7 +6,6 @@ use App\Enums\Gender;
 use App\Enums\Status;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Hash;
 
 class AdministratorSeeder extends Seeder

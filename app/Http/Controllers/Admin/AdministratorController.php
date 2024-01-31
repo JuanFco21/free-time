@@ -14,10 +14,10 @@ class AdministratorController extends Controller
     public function __construct()
     {
         if (Auth::guard('admin')->check()) {
-            $this->middleware(['permission:usuarios.index'])->only(['index']);
-            $this->middleware(['permission:usuarios.create'])->only(['create', 'store']);
-            $this->middleware(['permission:usuarios.edit'])->only(['edit', 'update']);
-            $this->middleware(['permission:usuarios.destroy'])->only(['destroy']);
+            $this->middleware(['permission:users.index'])->only(['index']);
+            $this->middleware(['permission:users.create'])->only(['create', 'store']);
+            $this->middleware(['permission:users.edit'])->only(['edit', 'update']);
+            $this->middleware(['permission:users.destroy'])->only(['destroy']);
         } else {
             return response()->json([
                 'message' => 'Not Authorized',

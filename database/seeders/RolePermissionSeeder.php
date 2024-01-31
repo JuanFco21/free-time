@@ -16,10 +16,10 @@ class RolePermissionSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
-            ['name' => 'usuarios.index', 'guard_name' => 'admin', 'group_name' => 'Usuarios'],
-            ['name' => 'usuarios.create', 'guard_name' => 'admin', 'group_name' => 'Usuarios'],
-            ['name' => 'usuarios.edit', 'guard_name' => 'admin', 'group_name' => 'Usuarios'],
-            ['name' => 'usuarios.destroy', 'guard_name' => 'admin', 'group_name' => 'Usuarios'],
+            ['name' => 'users.index', 'guard_name' => 'admin', 'group_name' => 'Usuarios'],
+            ['name' => 'users.create', 'guard_name' => 'admin', 'group_name' => 'Usuarios'],
+            ['name' => 'users.edit', 'guard_name' => 'admin', 'group_name' => 'Usuarios'],
+            ['name' => 'users.destroy', 'guard_name' => 'admin', 'group_name' => 'Usuarios'],
             ['name' => 'roles.index', 'guard_name' => 'admin', 'group_name' => 'Roles'],
             ['name' => 'roles.create', 'guard_name' => 'admin', 'group_name' => 'Roles'],
             ['name' => 'roles.edit', 'guard_name' => 'admin', 'group_name' => 'Roles'],
@@ -28,6 +28,10 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'permisos.create', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
             ['name' => 'permisos.edit', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
             ['name' => 'permisos.destroy', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
+            ['name' => 'digital_library_category.index', 'guard_name' => 'admin', 'group_name' => 'Bilioteca Digital'],
+            ['name' => 'digital_library_category.create', 'guard_name' => 'admin', 'group_name' => 'Bilioteca Digital'],
+            ['name' => 'digital_library_category.edit', 'guard_name' => 'admin', 'group_name' => 'Bilioteca Digital'],
+            ['name' => 'digital_library_category.destroy', 'guard_name' => 'admin', 'group_name' => 'Bilioteca Digital'],
         ];
 
         foreach ($permissions as $permiso) {
