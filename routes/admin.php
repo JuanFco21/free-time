@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdministratorAuthController;
 use App\Http\Controllers\Admin\AdministratorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DigitalLibraryCategoryController;
+use App\Http\Controllers\Admin\DigitalLibraryController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 
@@ -18,6 +19,13 @@ Route::middleware('admin')->group(function () {
 });
 
 Route::middleware('admin')->group(function () {
+    Route::get('modulo-de-catalogos/categorias-biblioteca-digital', [DigitalLibraryCategoryController::class, 'index'])->name('digital_library_category.index');  //Rutas para categorias de biblioteca digital
+    Route::get('modulo-de-catalogos/categorias-biblioteca-digital/crear-categoria-biblioteca-digital', [DigitalLibraryCategoryController::class, 'create'])->name('digital_library_category.create');
+    Route::post('modulo-de-catalogos/categorias-biblioteca-digital/store', [DigitalLibraryCategoryController::class, 'store'])->name('digital_library_category.store');
+    Route::get('modulo-de-catalogos/categorias-biblioteca-digital/editar-categoria-biblioteca-digital/{id}', [DigitalLibraryCategoryController::class, 'edit'])->name('digital_library_category.edit');
+    Route::put('modulo-de-catalogos/categorias-biblioteca-digital/update/{id}', [DigitalLibraryCategoryController::class, 'update'])->name('digital_library_category.update');
+    Route::delete('modulo-de-catalogos/categorias-biblioteca-digital/delete/{id}', [DigitalLibraryCategoryController::class, 'destroy'])->name('digital_library_category.destroy');
+
     Route::get('modulo-de-usuarios/administradores', [AdministratorController::class, 'index'])->name('administrator.index'); //Rutas para seccion de usuarios
     Route::get('modulo-de-usuarios/administradores/crear-administrador', [AdministratorController::class, 'create'])->name('administrator.create');
     Route::post('modulo-de-usuarios/administradores/store', [AdministratorController::class, 'store'])->name('administrator.store');
@@ -39,10 +47,10 @@ Route::middleware('admin')->group(function () {
     Route::put('modulo-de-usuarios/permisos/update/{id}', [PermissionController::class, 'update'])->name('permission.update');
     Route::delete('modulo-de-usuarios/permisos/delete/{id}', [PermissionController::class, 'destroy'])->name('permission.destroy');
 
-    Route::get('modulo-de-catalogos/categorias-biblioteca-digital', [DigitalLibraryCategoryController::class, 'index'])->name('digital_library_category.index');  //Rutas para categorias de biblioteca digital
-    Route::get('modulo-de-catalogos/categorias-biblioteca-digital/crear-categoria-biblioteca-digital', [DigitalLibraryCategoryController::class, 'create'])->name('digital_library_category.create');
-    Route::post('modulo-de-catalogos/categorias-biblioteca-digital/store', [DigitalLibraryCategoryController::class, 'store'])->name('digital_library_category.store');
-    Route::get('modulo-de-catalogos/categorias-biblioteca-digital/editar-categoria-biblioteca-digital/{id}', [DigitalLibraryCategoryController::class, 'edit'])->name('digital_library_category.edit');
-    Route::put('modulo-de-catalogos/categorias-biblioteca-digital/update/{id}', [DigitalLibraryCategoryController::class, 'update'])->name('digital_library_category.update');
-    Route::delete('modulo-de-catalogos/categorias-biblioteca-digital/delete/{id}', [DigitalLibraryCategoryController::class, 'destroy'])->name('digital_library_category.destroy');
+    Route::get('modulo-de-publicaciones/biblioteca-digital', [DigitalLibraryController::class, 'index'])->name('digital_library.index'); 
+    Route::get('modulo-de-publicaciones/biblioteca-digital/crear-biblioteca-digital', [DigitalLibraryController::class, 'create'])->name('digital_library.create');
+    Route::post('modulo-de-publicaciones/biblioteca-digital/store', [DigitalLibraryController::class, 'store'])->name('digital_library.store');
+    Route::get('modulo-de-publicaciones/biblioteca-digital/editar-biblioteca-digital/{id}', [DigitalLibraryController::class, 'edit'])->name('digital_library.edit');
+    Route::put('modulo-de-publicaciones/biblioteca-digital/update/{id}', [DigitalLibraryController::class, 'update'])->name('digital_library.update');
+    Route::delete('modulo-de-publicaciones/biblioteca-digital/delete/{id}', [DigitalLibraryController::class, 'destroy'])->name('digital_library.destroy');
 });

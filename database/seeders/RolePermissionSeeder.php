@@ -6,7 +6,6 @@ use App\Models\Administrator;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RolePermissionSeeder extends Seeder
 {
@@ -28,10 +27,14 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'permisos.create', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
             ['name' => 'permisos.edit', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
             ['name' => 'permisos.destroy', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
-            ['name' => 'digital_library_category.index', 'guard_name' => 'admin', 'group_name' => 'Bilioteca Digital'],
-            ['name' => 'digital_library_category.create', 'guard_name' => 'admin', 'group_name' => 'Bilioteca Digital'],
-            ['name' => 'digital_library_category.edit', 'guard_name' => 'admin', 'group_name' => 'Bilioteca Digital'],
-            ['name' => 'digital_library_category.destroy', 'guard_name' => 'admin', 'group_name' => 'Bilioteca Digital'],
+            ['name' => 'digital_library_category.index', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital(Categoria)'],
+            ['name' => 'digital_library_category.create', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital(Categoria)'],
+            ['name' => 'digital_library_category.edit', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital(Categoria)'],
+            ['name' => 'digital_library_category.destroy', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital(Categoria)'],
+            ['name' => 'digital_library.index', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital'],
+            ['name' => 'digital_library.create', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital'],
+            ['name' => 'digital_library.edit', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital'],
+            ['name' => 'digital_library.destroy', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital'],
         ];
 
         foreach ($permissions as $permiso) {

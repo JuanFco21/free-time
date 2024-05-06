@@ -52,11 +52,14 @@
                     </li>
                 @endif
                 <li class="menu-header">Módulo de Publicaciones</li>
-                <li>
-                    <a class="nav-link" href="#"><i class="fas fa-bookmark"></i>
-                        <span>Biblioteca Digital</span>
-                    </a>
-                </li>
+                @if (Auth::guard('admin')->check() &&
+                        Auth::guard('admin')->user()->can('digital_library.index'))
+                    <li>
+                        <a class="nav-link" href="{{ route('digital_library.index') }}"><i class="fas fa-bookmark"></i>
+                            <span>Biblioteca Digital</span>
+                        </a>
+                    </li>
+                @endif
             @endif
         </ul>
     </aside>
