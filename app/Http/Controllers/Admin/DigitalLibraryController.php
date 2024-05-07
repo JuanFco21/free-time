@@ -7,7 +7,7 @@ use App\Models\DigitalLibrary;
 use App\Traits\FileUploadTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\DigitalLibraryCategory;
+use App\Models\Category;
 use App\Http\Requests\DigitalLibraryRequest;
 use App\Models\Tag;
 use App\Traits\ImageUploadTrait;
@@ -38,8 +38,8 @@ class DigitalLibraryController extends Controller
 
     public function create()
     {
-        $digital_library_categories = DigitalLibraryCategory::all();
-        return view('admin.digital_library.create', compact('digital_library_categories'));
+        $categories = Category::all();
+        return view('admin.digital_library.create', compact('categories'));
     }
 
     public function store(DigitalLibraryRequest $request)
@@ -57,7 +57,7 @@ class DigitalLibraryController extends Controller
             'article_image' => $imagePath,
             'article_file' => $filePath,
             'people_opinion' => $request->people_opinion,
-            'digital_library_category_id' => $request->digital_library_category,
+            'category_id' => $request->category,
             'publication_date' => $request->publication_date,
             'article_year' => $request->article_year,
             'article_volume' => $request->article_volume,
@@ -89,8 +89,8 @@ class DigitalLibraryController extends Controller
     public function edit($id)
     {
         $digital_library = DigitalLibrary::findOrFail($id);
-        $digital_library_categories = DigitalLibraryCategory::all();
-        return view('admin.digital_library.edit', compact('digital_library', 'digital_library_categories'));
+        $categories = Category::all();
+        return view('admin.digital_library.edit', compact('digital_library', 'categories'));
     }
 
     public function update(DigitalLibraryRequest $request, $id)
@@ -109,7 +109,7 @@ class DigitalLibraryController extends Controller
             'article_image' => !empty($imagePath) ? $imagePath : $digital_library->article_image,
             'article_file' => !empty($filePath) ? $filePath : $digital_library->article_file,
             'people_opinion' => $request->people_opinion,
-            'digital_library_category_id' => $request->digital_library_category,
+            'category_id' => $request->category,
             'publication_date' => $request->publication_date,
             'article_year' => $request->article_year,
             'article_volume' => $request->article_volume,

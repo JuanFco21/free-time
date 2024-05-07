@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('isnn');
             $table->text('people_opinion')->nullable();
             $table->enum('status', ['Publicado', 'No Publicado'])->default(PublicationStatus::PUBLISHED->value);
-            $table->foreignId('digital_library_category_id')->constrained('digital_library_categories')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('administrator_id')->constrained('administrators')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

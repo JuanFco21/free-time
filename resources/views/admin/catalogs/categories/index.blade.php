@@ -3,16 +3,16 @@
 @section('admin')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Biblioteca Digital (Categorias)') }}</h1>
+            <h1>{{ __('Categorias') }}</h1>
         </div>
 
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Biblioteca Digital (Categorias)') }}</h4>
+                <h4>{{ __('Categorias') }}</h4>
                 <div class="card-header-action">
                     @if (Auth::guard('admin')->check() &&
-                            Auth::guard('admin')->user()->can('digital_library_category.create'))
-                        <a href="{{ route('digital_library_category.create') }}" class="btn btn-primary">
+                            Auth::guard('admin')->user()->can('category.create'))
+                        <a href="{{ route('category.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus"></i> {{ __('Crear nueva categoria') }}
                         </a>
                     @endif
@@ -30,30 +30,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($digital_library_categories as $digital_library_category)
+                            @foreach ($categories as $category)
                                 <tr>
-                                    <td>{{ $digital_library_category->id }}</td>
-                                    <td>{{ $digital_library_category->name }}</td>
+                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $category->name }}</td>
                                     <td>
-                                        @if ($digital_library_category->status === App\Enums\Status::ACTIVE)
-                                            <div class="badge badge-success">{{ $digital_library_category->status }}</div>
-                                        @elseif ($digital_library_category->status === App\Enums\Status::INACTIVE)
-                                            <div class="badge badge-danger">{{ $digital_library_category->status }}</div>
+                                        @if ($category->status === App\Enums\Status::ACTIVE)
+                                            <div class="badge badge-success">{{ $category->status }}</div>
+                                        @elseif ($category->status === App\Enums\Status::INACTIVE)
+                                            <div class="badge badge-danger">{{ $category->status }}</div>
                                         @endif
                                     </td>
                                     <td>
                                         @if (Auth::guard('admin')->check() &&
-                                                Auth::guard('admin')->user()->can('digital_library_category.edit'))
-                                            <a href="{{ route('digital_library_category.edit', $digital_library_category->id) }}"
+                                                Auth::guard('admin')->user()->can('category.edit'))
+                                            <a href="{{ route('category.edit', $category->id) }}"
                                                 class="btn btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                         @endif
                                         @if (Auth::guard('admin')->check() &&
-                                                Auth::guard('admin')->user()->can('digital_library_category.destroy'))
+                                                Auth::guard('admin')->user()->can('category.destroy'))
                                             <div class="d-inline-block">
                                                 <form method="POST"
-                                                    action="{{ route('digital_library_category.destroy', $digital_library_category->id) }}">
+                                                    action="{{ route('category.destroy', $category->id) }}">
                                                     @method('DELETE')
                                                     @csrf
                                                     <button type="button" class="btn btn-danger delete-item"><i

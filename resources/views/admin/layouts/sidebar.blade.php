@@ -20,10 +20,10 @@
             </li>
             <li class="menu-header">Módulo de Catálogos</li>
             @if (Auth::guard('admin')->check() &&
-                    Auth::guard('admin')->user()->can('digital_library_category.index'))
+                    Auth::guard('admin')->user()->can('category.index'))
                 <li>
-                    <a class="nav-link" href="{{ route('digital_library_category.index') }}"><i class="fas fa-book"></i>
-                        <span>Biblioteca Digital (Categorias)</span>
+                    <a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-book"></i>
+                        <span>Categorias</span>
                     </a>
                 </li>
                 <li class="menu-header">Módulo de Usuarios</li>

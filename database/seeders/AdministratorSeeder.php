@@ -23,7 +23,7 @@ class AdministratorSeeder extends Seeder
                 'gender' => Gender::MALE->value,
                 'status' => Status::ACTIVE->value,
                 'email' => 'superadmin@gmail.com',
-                'password' => Hash::make('12345'),
+                'password' => Hash::make('123456'),
             ],
             [
                 'name' => 'Administrador',
@@ -32,7 +32,7 @@ class AdministratorSeeder extends Seeder
                 'gender' => Gender::MALE->value,
                 'status' => Status::ACTIVE->value,
                 'email' => 'admin@gmail.com',
-                'password' => Hash::make('12345'),
+                'password' => Hash::make('123456'),
             ],
             [
                 'name' => 'Journalist',
@@ -41,7 +41,7 @@ class AdministratorSeeder extends Seeder
                 'gender' => Gender::MALE->value,
                 'status' => Status::ACTIVE->value,
                 'email' => 'journalist@gmail.com',
-                'password' => Hash::make('12345'),
+                'password' => Hash::make('123456'),
             ],
         ]);
     }

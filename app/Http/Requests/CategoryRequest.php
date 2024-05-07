@@ -6,7 +6,7 @@ use App\Enums\Status;
 use Illuminate\Validation\Rules\Enum;
 use Illuminate\Foundation\Http\FormRequest;
 
-class DigitalLibraryCategoryRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,10 @@ class DigitalLibraryCategoryRequest extends FormRequest
      */
     public function rules(): array
     {
-        $digital_library_category_id = $this->route('id');
+        $category_id = $this->route('id');
 
         return [
-            'name' => 'required|unique:digital_library_categories,name,' . $digital_library_category_id,
+            'name' => 'required|unique:categories,name,' . $category_id,
             'status' => ['required', new Enum(Status::class)],
         ];
     }

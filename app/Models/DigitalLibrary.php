@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Tag;
 use App\Models\Administrator;
 use App\Enums\PublicationStatus;
-use App\Models\DigitalLibraryCategory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -29,7 +29,7 @@ class DigitalLibrary extends Model
         'people_opinion',
         'content',
         'status',
-        'digital_library_category_id',
+        'category_id',
         'administrator_id',
     ];
 
@@ -42,9 +42,9 @@ class DigitalLibrary extends Model
         return $this->belongsTo(Administrator::class);
     }
 
-    public function digital_library_category()
+    public function category()
     {
-        return $this->belongsTo(DigitalLibraryCategory::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function tags()

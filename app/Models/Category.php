@@ -6,7 +6,7 @@ use App\Enums\Status;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class DigitalLibraryCategory extends Model
+class Category extends Model
 {
     use HasFactory;
     

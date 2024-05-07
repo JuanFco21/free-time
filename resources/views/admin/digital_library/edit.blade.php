@@ -92,18 +92,18 @@
 
                         <div class="row col-lg-12 col-md-12">
                             <div class="form-group col-lg-6 col-md-6">
-                                <label for="digital_library_category">{{ __('Categoria') }}</label>
-                                <select name="digital_library_category" id="" class="select2 form-control">
+                                <label for="category">{{ __('Categoria') }}</label>
+                                <select name="category" id="" class="select2 form-control">
                                     <option value="" disabled>
                                         {{ __('---Selecciona una opción---') }}
                                     </option>
-                                    @foreach ($digital_library_categories as $category)
+                                    @foreach ($categories as $category)
                                         <option value="{{ $category->id }}"
-                                            {{ $digital_library->digital_library_category_id == $category->id ? 'selected' : '' }}>
+                                            {{ $digital_library->category_id == $category->id ? 'selected' : '' }}>
                                             {{ $category->name }}</option>
                                     @endforeach
                                 </select>
-                                @error('digital_library_category')
+                                @error('category')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>

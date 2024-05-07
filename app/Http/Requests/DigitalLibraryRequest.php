@@ -36,7 +36,7 @@ class DigitalLibraryRequest extends FormRequest
             'article_number' => 'required',
             'article_number_pages' => 'required|integer',
             'isnn' => 'required',
-            'digital_library_category' => 'required',
+            'category' => 'required',
             'people_opinion' => 'nullable',
             'status' => ['required', new Enum(PublicationStatus::class)],
         ];
@@ -79,7 +79,7 @@ class DigitalLibraryRequest extends FormRequest
             'article_number_pages.required' => 'Debes asignar el número de páginas del articulo.',
             'article_number_pages.integer' => 'El número de páginas del artículo debe ser un número entero.',
             'isnn.required' => 'Debes asignar el ISNN articulo.',
-            'digital_library_category.required' => 'Por favor, selecciona una categoria para el artículo.',
+            'category.required' => 'Por favor, selecciona una categoria para el artículo.',
             'status.required' => 'Por favor, selecciona un estado para el artículo.',
         ];
     }
