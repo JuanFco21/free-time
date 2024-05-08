@@ -27,10 +27,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="blog_page_search">
-                        <form action="#">
+                        <form action="{{ route('frontend.digital_library', ['category' => $digital_library_slug->slug]) }}"
+                            method="GET">
                             <div class="row">
                                 <div class="col-lg-10">
-                                    <input type="text" placeholder="">
+                                    <input type="text" value="{{ request()->search }}" name="search">
                                 </div>
                                 <div class="col-lg-2">
                                     <button type="submit">buscar</button>
@@ -47,9 +48,8 @@
                                 <!-- article card -->
                                 @foreach ($digital_libraries as $digital_library)
                                     <div class="digital-library-presentation">
-                                        <img class="digital-library-card"
-                                            src="{{ asset($digital_library->article_image) }}" alt="Biblioteca Digital"
-                                            style="width: 30rem; height: 26rem;">
+                                        <img class="digital-library-card" src="{{ asset($digital_library->article_image) }}"
+                                            alt="Biblioteca Digital" style="width: 30rem; height: 26rem;">
                                         <div class="article__entry">
                                             <div class="article__content text-center">
                                                 <h5>
@@ -84,6 +84,11 @@
                                 @endforeach
                                 <!-- end article card -->
                             </div>
+                            @if (count($digital_libraries) === 0)
+                            <div class="text-center w-100">
+                                <h4>{{ __('No hay ninguna publicación disponible') }}</h4>
+                            </div>
+                        @endif
                         </div>
                     </div>
                 </div>
