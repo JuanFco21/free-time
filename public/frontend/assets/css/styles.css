@@ -12592,7 +12592,7 @@ input[type="number"] {
 }
 
 .card__post-list .card__post__content .card__post__title h6 a:hover {
-    color: var(--colorPrimary)
+    color: none;
 }
 
 .wrapper__list__article-small .card__post .card__post__content .card__post__title h6 a {
@@ -18018,22 +18018,22 @@ body.offcanvas-active {
     margin-left: 3px; /* Elimina el margen derecho si es necesario */
 }
 
-.revista__dialogos {
+.digital-library {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1rem;
 }
 
-.revista__dialogos-card {
+.digital-library-card {
     width: 100%;
     max-height: 28rem;
 }
 
 @media (max-width: 1024px) {
-    .revista__dialogos {
+    .digital-library {
         grid-template-columns: 1fr 1fr;
     }
-    .revista__dialogos-presentation {
+    .digital-library-presentation {
         max-width: auto;
         width: 100%;
     }
@@ -18041,20 +18041,20 @@ body.offcanvas-active {
 }
 
 @media (max-width: 768px) {
-    .revista__dialogos {
+    .digital-library {
         grid-template-columns: 1fr 1fr;
     }
-    .revista__dialogos-presentation {
+    .digital-library-presentation {
         max-width: auto;
         width: 100%;
     }
 }
 
 @media (max-width: 480px) {
-    .revista__dialogos {
+    .digital-library {
         grid-template-columns: repeat(1, 100%);
     }
-    .revista__dialogos-presentation {
+    .digital-library-presentation {
         max-width: auto;
         width: 100%;
     }

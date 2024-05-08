@@ -128,177 +128,47 @@
                             <img src="images/12421730668337893628.jfif" alt="adds">
                         </div>
                     </div>
-
                     <div class="clearfix"></div>
-
                     <div class="related-article">
                         <h4>
                             tambien te puede interesar
                         </h4>
-
                         <div class="article__entry-carousel-three">
-                            <div class="item">
-                                <!-- Post Article -->
-                                <div class="article__entry">
-                                    <div class="article__image">
-                                        <a href="#">
-                                            <img src="images/images.jfif" alt="" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="article__content text-center">
-                                        <h5>
-                                            EL COCODRILO Y EL COSMOS:
-                                            ITZAMKANAC, EL LUGAR DE LA CASA DEL LAGARTO
-                                        </h5>
-                                        <ul class="list-inline mb-3">
-                                            <li class="list-inline-item">
-                                                <span class="text-primary">
-                                                    Autores: Ernesto Vargas Pacheco,
-                                                    Teri Arias Ortiz
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span class="text-dark text-capitalize">
-                                                    Fecha de publicación: 2002
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <i class="fa fa-tags">
-                                                </i>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    cultura
-                                                </span>
-                                                <span>,</span>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    chamanismo
-                                                </span>
-                                                <span>,</span>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    tabasco
-                                                </span>
-                                            </li>
-                                        </ul>
+                            @foreach ($digital_libraries_carousel as $carousel)
+                                <div class="item">
+                                    <!-- Post Article -->
+                                    <div class="article__entry">
+                                        <div class="article__image">
+                                            <a
+                                                href="{{ route('frontend.digital_library_detail', ['category' => $digital_library_slug->slug, 'publication' => $carousel->slug]) }}">
+                                                <img src="{{ asset($carousel->article_image) }}" alt=""
+                                                    class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <div class="article__content text-center">
+                                            <h5>{{ $carousel->title }}</h5>
+                                            <ul class="list-inline mb-3">
+                                                <li class="list-inline-item">
+                                                    <span class="text-primary">
+                                                        Autores: {{ implode(', ', json_decode($carousel->authors)) }}
+                                                    </span>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <span class="text-dark text-capitalize">
+                                                        Fecha de publicación: {{ $carousel->article_year }}
+                                                    </span>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <i class="fa fa-tags"></i>
+                                                    <span class="text-dark text-capitalize" style="text-decoration: none;">
+                                                        {{ implode(', ', $carousel->tags->pluck('name')->toArray()) }}
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <!-- Post Article -->
-                                <div class="article__entry">
-                                    <div class="article__image">
-                                        <a href="#">
-                                            <img src="images/diagnosticoambiental.png" alt="" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="article__content text-center">
-                                        <h5>
-                                            DIAGNOSTICO AMBIENTAL Y FORESTAL DEL ESTADO DE TABASCO
-                                        </h5>
-                                        <ul class="list-inline mb-3">
-                                            <li class="list-inline-item">
-                                                <span class="text-primary">
-                                                    Autores: Vanessa Calderón Romero, Tania Mayela Vite Garín,
-                                                    Carlos Mallén Rivera
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span class="text-dark text-capitalize">
-                                                    Fecha de publicación: 2006
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <i class="fa fa-tags">
-                                                </i>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    ecologia
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <!-- Post Article -->
-                                <div class="article__entry">
-                                    <div class="article__image">
-                                        <a href="#">
-                                            <img src="images/religion.png" alt="" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="article__content text-center">
-                                        <h5>
-                                            RELIGIÓN Y CULTURA
-                                            EN LOS PUEBLOS
-                                            INDÍGENAS EN TABASCO
-                                        </h5>
-                                        <ul class="list-inline mb-3">
-                                            <li class="list-inline-item">
-                                                <span class="text-primary">
-                                                    Autores: Marco Antonio Vásquez
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span class="text-dark text-capitalize">
-                                                    Fecha de publicación: 2002
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <i class="fa fa-tags">
-                                                </i>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    indigenas
-                                                </span>
-                                                <span>,</span>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    cultura
-                                                </span>
-                                                <span>,</span>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    tabasco
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <!-- Post Article -->
-                                <div class="article__entry">
-                                    <div class="article__image">
-                                        <a href="#">
-                                            <img src="images/ecologia.png" alt="" class="img-fluid">
-                                        </a>
-                                    </div>
-                                    <div class="article__content text-center">
-                                        <h5>
-                                            Danzas Indigenas: Rituales de identidad en comunidades
-                                            chontales en Tabasco
-                                        </h5>
-                                        <ul class="list-inline mb-3">
-                                            <li class="list-inline-item">
-                                                <span class="text-primary">
-                                                    Autores: Aurora Kristel Fríaz
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <span class="text-dark text-capitalize">
-                                                    Fecha de publicación: 27 de Octubre 2017
-                                                </span>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <i class="fa fa-tags">
-                                                </i>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    cultura
-                                                </span>
-                                                <span>,</span>
-                                                <span class="text-dark text-capitalize" style="text-decoration: none;">
-                                                    tabasco
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -307,7 +177,8 @@
                         <aside class="wrapper__list__article">
                             <!-- Post Article -->
                             <div class="article__entry">
-                                <img class="revista__dialogos-card" src="{{ asset($digital_library->article_image) }}">
+                                <img class="digital-library-card" src="{{ asset($digital_library->article_image) }}"
+                                    style="width: 30rem; height: 26rem;">
                             </div>
                             <div class="text-center">
                                 @if ($digital_library->article_file)
@@ -365,7 +236,6 @@
 
                                 </ul>
                             </div>
-
                             <h4 class="border_section">etiquetas</h4>
                             <div class="blog-tags p-0">
                                 <ul class="list-inline">

@@ -43,11 +43,11 @@
                     </aside>
                     <div class="container">
                         <div class="row">
-                            <div class="revista__dialogos">
+                            <div class="digital-library">
                                 <!-- article card -->
                                 @foreach ($digital_libraries as $digital_library)
-                                    <div class="revista__dialogos-presentation">
-                                        <img class="revista__dialogos-card"
+                                    <div class="digital-library-presentation">
+                                        <img class="digital-library-card"
                                             src="{{ asset($digital_library->article_image) }}" alt="Biblioteca Digital"
                                             style="width: 30rem; height: 26rem;">
                                         <div class="article__entry">

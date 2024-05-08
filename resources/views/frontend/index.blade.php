@@ -12,7 +12,7 @@
         <!-- End Recent News -->
 
         <!-- Post news carousel -->
-        @include('frontend.home-components.carousel_news')
+        @include('frontend.home-components.digital_libraries_carousel')
         <!-- End Popular news category -->
 
         <!-- Popular news category -->

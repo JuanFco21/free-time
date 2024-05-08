@@ -375,169 +375,88 @@
             <div class="col-md-4">
                 <div class="sticky-top">
                     <aside class="wrapper__list__article">
-                        <h4 class="border_section">
-                            Yumká</h4>
-                        <div class="wrapper__list__article-small">
-
-                            <!-- Post Article -->
-                            <div class="article__entry">
-                                <div class="article__image">
-                                    <a href="#">
-                                        <img src="{{ asset('frontend/assets/img/newsimage2.png') }}" alt=""
-                                            class="img-fluid">
-                                    </a>
-                                </div>
-                                <div class="article__content">
-                                    <div class="article__category">
-                                        travel
-                                    </div>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <span class="text-primary">
-                                                by david hall
-                                            </span>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <span class="text-dark text-capitalize">
-                                                descember 09, 2016
-                                            </span>
-                                        </li>
-
-                                    </ul>
-                                    <h5>
-                                        <a href="#">
-                                            Proin eu nisl et arcu iaculis placerat sollicitudin ut est
-                                        </a>
-                                    </h5>
-                                    <p>
-                                        Maecenas accumsan tortor ut velit pharetra mollis. Proin eu nisl et arcu
-                                        iaculis placerat sollicitudin ut
-                                        est. In fringilla dui dui.
-                                    </p>
-                                    <a href="#" class="btn btn-primary mb-4 text-capitalize">ver mas</a>
-
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <!-- Post Article -->
-                                <div class="card__post card__post-list">
-                                    <div class="image-sm">
-                                        <a href="blog_details.html">
-                                            <img src="{{ asset('frontend/assets/img/news1.jpg') }}" class="img-fluid"
-                                                alt="">
+                        @foreach ($digital_libraries_pills as $key => $pills)
+                            @if ($key == 0)
+                                <h4 class="border_section">{{ $pills->category->name }}</h4>
+                                <div class="article__entry">
+                                    <div class="article__image">
+                                        <a
+                                            href="{{ route('frontend.digital_library_detail', ['category' => $pills->category->slug, 'publication' => $pills->slug]) }}">
+                                            <img src="{{ asset($pills->article_image) }}" alt=""
+                                                class="img-fluid">
                                         </a>
                                     </div>
-
-                                    <div class="card__post__body ">
-                                        <div class="card__post__content">
-                                            <div class="card__post__author-info mb-2">
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <span class="text-primary">
-                                                            by david hall
-                                                        </span>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <span class="text-dark text-capitalize">
-                                                            descember 09, 2016
-                                                        </span>
-                                                    </li>
-
-                                                </ul>
+                                    <div class="article__content">
+                                        @foreach ($pills->tags as $tag)
+                                            <div class="article__category">
+                                                {{ $tag->name }}
                                             </div>
-                                            <div class="card__post__title">
-                                                <h6>
-                                                    <a href="blog_details.html">
-                                                        6 Best Tips for Building a Good Shipping Boat
-                                                    </a>
-                                                </h6>
+                                        @endforeach
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <span class="text-primary">
+                                                    por {{ $pills->administrator->name }}
+                                                </span>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <span class="text-dark text-capitalize">
+                                                    {{ \Carbon\Carbon::parse($pills->created_at)->formatLocalized('%d de %B de %Y') }}
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <h5>
+                                            <a
+                                                href="{{ route('frontend.digital_library_detail', ['category' => $pills->category->slug, 'publication' => $pills->slug]) }}">
+                                                {{ $pills->title }}
+                                            </a>
+                                        </h5>
+                                        <p>{!! Str::limit($pills->content, 200) !!}</p>
+                                        <a href="{{ route('frontend.digital_library_detail', ['category' => $pills->category->slug, 'publication' => $pills->slug]) }}"
+                                            class="btn btn-primary mb-4 text-capitalize">ver mas</a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="mb-3">
+                                    <!-- Post Article -->
+                                    <div class="card__post card__post-list">
+                                        <div class="image-sm">
+                                            <a
+                                                href="{{ route('frontend.digital_library_detail', ['category' => $pills->category->slug, 'publication' => $pills->slug]) }}">
+                                                <img src="{{ asset($pills->article_image) }}" class="img-fluid"
+                                                    alt="">
+                                            </a>
+                                        </div>
+                                        <div class="card__post__body">
+                                            <div class="card__post__content">
+                                                <div class="card__post__author-info mb-2">
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item">
+                                                            <span class="text-primary">
+                                                                by {{ $pills->administrator->name }}
+                                                            </span>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <span class="text-dark text-capitalize">
+                                                                {{ \Carbon\Carbon::parse($pills->created_at)->formatLocalized('%d de %B de %Y') }}
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="card__post__title">
+                                                    <h6>
+                                                        <a href="blog_details.html">
+                                                            {{ $pills->title }}
+                                                        </a>
+                                                    </h6>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mb-3">
-                                <!-- Post Article -->
-                                <div class="card__post card__post-list">
-                                    <div class="image-sm">
-                                        <a href="blog_details.html">
-                                            <img src="{{ asset('frontend/assets/img/news2.jpg') }}" class="img-fluid"
-                                                alt="">
-                                        </a>
-                                    </div>
-
-                                    <div class="card__post__body ">
-                                        <div class="card__post__content">
-
-                                            <div class="card__post__author-info mb-2">
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <span class="text-primary">
-                                                            by david hall
-                                                        </span>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <span class="text-dark text-capitalize">
-                                                            descember 09, 2016
-                                                        </span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="card__post__title">
-                                                <h6>
-                                                    <a href="blog_details.html">
-                                                        6 Best Tips for Building a Good Shipping Boat
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <!-- Post Article -->
-                                <div class="card__post card__post-list">
-                                    <div class="image-sm">
-                                        <a href="blog_details.html">
-                                            <img src="{{ asset('frontend/assets/img/news2.jpg') }}" class="img-fluid"
-                                                alt="">
-                                        </a>
-                                    </div>
-
-                                    <div class="card__post__body ">
-                                        <div class="card__post__content">
-
-                                            <div class="card__post__author-info mb-2">
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <span class="text-primary">
-                                                            by david hall
-                                                        </span>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <span class="text-dark text-capitalize">
-                                                            descember 09, 2016
-                                                        </span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="card__post__title">
-                                                <h6>
-                                                    <a href="blog_details.html">
-                                                        6 Best Tips for Building a Good Shipping Boat
-                                                    </a>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                     </aside>
+
 
                     <aside class="wrapper__list__article">
                         <h4 class="border_section">Redes Sociales</h4>
@@ -602,11 +521,12 @@
                         <h4 class="border_section">Anuncios</h4>
                         <a href="#">
                             <figure>
-                                <img src="{{ asset('frontend/assets/img/11486449129708807881.jfif') }}" alt=""
-                                    class="img-fluid">
+                                <img src="{{ asset('frontend/assets/img/11486449129708807881.jfif') }}"
+                                    alt="" class="img-fluid">
                             </figure>
                         </a>
                     </aside>
+
                 </div>
             </div>
             <div class="mx-auto">
