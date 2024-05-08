@@ -88,7 +88,7 @@
                                 <li class="no-results" style="display: none;">No se encontraron resultados.</li>
                                 @foreach ($digital_library_categories as $digital_library_category)
                                     <li><a class="dropdown-item"
-                                            href="{{ route('frontend.digital_library', ['slug' => $digital_library_category->slug]) }}">{{ $digital_library_category->name }}</a>
+                                            href="{{ route('frontend.digital_library', ['category' => $digital_library_category->slug]) }}">{{ $digital_library_category->name }}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -200,7 +200,7 @@
                                     <li class="no-results" style="display: none;">No se encontraron resultados.</li>
                                     @foreach ($digital_library_categories as $digital_library_category)
                                         <li><a class="dropdown-item"
-                                                href="{{ route('frontend.digital_library', ['slug' => $digital_library_category->slug]) }}">{{ $digital_library_category->name }}</a>
+                                                href="{{ route('frontend.digital_library', ['category' => $digital_library_category->slug]) }}">{{ $digital_library_category->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>

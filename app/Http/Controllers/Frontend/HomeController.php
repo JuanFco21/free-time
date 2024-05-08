@@ -14,21 +14,34 @@ class HomeController extends Controller
         return view('frontend.index', compact('digital_library_categories'));
     }
 
-    public function digitalLibraries(string $slug)
+    public function digitalLibraries(string $category)
     {
         $digital_library_categories = Category::with('digital_library')->where('status', 'Activo')->get();
-    
-        $digital_library_slug = Category::where('slug', $slug)->first();
-    
+        $digital_library_slug = Category::where('slug', $category)->first();
         $digital_libraries = DigitalLibrary::with('category', 'tags')
-                            ->whereHas('category', function ($query) use ($slug) {
-                                $query->where('slug', $slug);
-                            })
-                            ->where('status', 'Publicado')
-                            ->paginate(6);
-    
+            ->whereHas('category', function ($query) use ($category) {
+                $query->where('slug', $category);
+            })
+            ->where('status', 'Publicado')
+            ->paginate(6);
+
         return view('frontend.digital-libraries', compact('digital_library_categories', 'digital_library_slug', 'digital_libraries'));
-    }    
+    }
+
+    public function digitalLibrariesDetails(string $category, string $publication)
+    {
+        $digital_library_categories = Category::with('digital_library')->where('status', 'Activo')->get();
+        $digital_library_slug = Category::where('slug', $category)->first();
+        $digital_library = DigitalLibrary::with('category', 'tags')
+            ->whereHas('category', function ($query) use ($category) {
+                $query->where('slug', $category);
+            })
+            ->where('slug', $publication)
+            ->where('status', 'Publicado')
+            ->first();
+
+        return view('frontend.digital-libraries-details', compact('digital_library_categories', 'digital_library_slug', 'digital_library'));
+    }
 
     public function login()
     {

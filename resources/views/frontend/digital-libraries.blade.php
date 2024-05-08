@@ -15,7 +15,7 @@
                             <a href="#" class="breadcrumbs__url">Biblioteca Digital</a>
                         </li>
                         <li class="breadcrumbs__item">
-                            <a href="{{ route('frontend.digital_library', ['slug' => $digital_library_slug->slug]) }}"
+                            <a href="{{ route('frontend.digital_library', ['category' => $digital_library_slug->slug]) }}"
                                 class="breadcrumbs__url">{{ $digital_library_slug->name }}</a>
                         </li>
                     </ul>
@@ -48,7 +48,8 @@
                                 @foreach ($digital_libraries as $digital_library)
                                     <div class="revista__dialogos-presentation">
                                         <img class="revista__dialogos-card"
-                                            src="{{ asset($digital_library->article_image) }}" alt="Biblioteca Digital" style="width: 30rem; height: 26rem;">
+                                            src="{{ asset($digital_library->article_image) }}" alt="Biblioteca Digital"
+                                            style="width: 30rem; height: 26rem;">
                                         <div class="article__entry">
                                             <div class="article__content text-center">
                                                 <h5>
@@ -75,7 +76,7 @@
                                                         </span>
                                                     </li>
                                                 </ul>
-                                                <a href="#"
+                                                <a href="{{ route('frontend.digital_library_detail', ['category' => $digital_library_slug->slug, 'publication' => $digital_library->slug]) }}"
                                                     class="btn btn-outline-primary mb-4 text-capitalize"> ver mas</a>
                                             </div>
                                         </div>
@@ -94,7 +95,6 @@
                     @if ($digital_libraries->currentPage() > 1)
                         <a href="{{ $digital_libraries->url($digital_libraries->currentPage() - 1) }}" rel="prev">«</a>
                     @else
-
                     @endif
 
                     @for ($i = 1; $i <= $digital_libraries->lastPage(); $i++)
@@ -105,7 +105,6 @@
                     @if ($digital_libraries->hasMorePages())
                         <a href="{{ $digital_libraries->nextPageUrl() }}" rel="next">»</a>
                     @else
-     
                     @endif
                 </div>
             </div>
