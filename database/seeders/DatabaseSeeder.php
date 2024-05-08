@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\CategoriaSeeder;
 use Database\Seeders\AdministratorSeeder;
 use Database\Seeders\RolePermissionSeeder;
 
@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(AdministratorSeeder::class);
         $this->call(RolePermissionSeeder::class);
+        $this->call(CategoriaSeeder::class);
     }
 }

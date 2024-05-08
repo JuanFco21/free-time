@@ -16,4 +16,6 @@ use App\Http\Controllers\Frontend\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 
+Route::get('/biblioteca-digital/{slug}', [HomeController::class, 'digitalLibraries'])->name('frontend.digital_library');
+
 Route::get('/iniciar-sesion', [HomeController::class, 'login'])->name('frontend.login');

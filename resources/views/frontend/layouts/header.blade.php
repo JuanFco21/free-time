@@ -42,14 +42,15 @@
                     </div>
                 </div>
                 <figure class="mt-2 mb-2 mx-auto">
-                    <a href="index.html">
-                        <img src="{{ asset('frontend/assets/img/logo-header.png') }}" alt="Logo Free Time" class="img-fluid logo">
+                    <a href="{{ route('frontend.home') }}">
+                        <img src="{{ asset('frontend/assets/img/logo-header.png') }}" alt="Logo Free Time"
+                            class="img-fluid logo">
                     </a>
                 </figure>
                 <div class="collapse navbar-collapse justify-content-between" id="main_nav99">
                     <ul class="navbar-nav ml-auto ">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Inicio</a>
+                            <a class="nav-link active" href="{{ route('frontend.home') }}">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="about-us.html"> Sobre Nosotros </a>
@@ -85,30 +86,15 @@
                                         placeholder="Buscar">
                                 </li>
                                 <li class="no-results" style="display: none;">No se encontraron resultados.</li>
-                                <li><a class="dropdown-item" href="#">Arqueología de Tabasco</a></li>
-                                <li><a class="dropdown-item" href="#">Artesanías</a></li>
-                                <li><a class="dropdown-item" href="#">Arte Tabasco</a></li>
-                                <li><a class="dropdown-item" href="#">Cacao Tabasco</a></li>
-                                <li><a class="dropdown-item" href="#">Chamanismo</a></li>
-                                <li><a class="dropdown-item" href="#">Danzas</a></li>
-                                <li><a class="dropdown-item" href="#">Ecología</a></li>
-                                <li><a class="dropdown-item" href="#">Ecoturismo en Tabasco</a></li>
-                                <li><a class="dropdown-item" href="#">Gastronomía</a></li>
-                                <li><a class="dropdown-item" href="#">Historia de Tabasco</a></li>
-                                <li><a class="dropdown-item" href="gastronomia.html">Indígenas</a></li>
-                                <li><a class="dropdown-item" href="#">Jaguar Tabasco</a></li>
-                                <li><a class="dropdown-item" href="#">Museos de Tabasco</a></li>
-                                <li><a class="dropdown-item" href="#">Música Tabasco</a></li>
-                                <li><a class="dropdown-item" href="#">Olmecas</a></li>
-                                <li><a class="dropdown-item" href="#">Pantanos de Centla</a></li>
-                                <li><a class="dropdown-item" href="#">Sitio Arqueológico Comalcalco</a></li>
-                                <li><a class="dropdown-item" href="#">Sitio Arqueológico Pomoná</a></li>
-                                <li><a class="dropdown-item" href="#">Teatro Tabasco</a></li>
-                                <li><a class="dropdown-item" href="#">Yumká</a></li>
-                                <li><a class="dropdown-item" href="#">Zoques</a></li>
+                                @foreach ($digital_library_categories as $digital_library_category)
+                                    <li><a class="dropdown-item"
+                                            href="{{ route('frontend.digital_library', ['slug' => $digital_library_category->slug]) }}">{{ $digital_library_category->name }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html"> Contactanos </a></li>
+                        <li class="nav-item"><a class="nav-link  text-dark" href="contact.html">Contactanos</a>
+                        </li>
                     </ul>
                     <!-- Search bar.// -->
                     <ul class="navbar-nav ">
@@ -174,13 +160,13 @@
                     <nav class="list-group list-group-flush">
                         <ul class="navbar-nav ">
                             <li class="nav-item">
-                                <a class="nav-link active text-dark" href="index.html"> Inicio</a>
+                                <a class="nav-link active text-dark" href="{{ route('frontend.home') }}"> Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="about-us.html"> Sobre Nosotros </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Adónde ir
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">Adónde ir
                                 </a>
                                 <ul class="dropdown-menu animate fade-up scrollable-dropdown">
                                     <li>
@@ -200,10 +186,10 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown has-megamenu">
-                                <a class="nav-link" href="articulos.html">Blog </a>
+                                <a class="nav-link">Blog</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">
                                     Biblioteca Digital
                                 </a>
                                 <ul class="dropdown-menu animate fade-up scrollable-dropdown">
@@ -212,35 +198,17 @@
                                             placeholder="Buscar">
                                     </li>
                                     <li class="no-results" style="display: none;">No se encontraron resultados.</li>
-                                    <li><a class="dropdown-item" href="#">Arqueología de Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="#">Artesanías</a></li>
-                                    <li><a class="dropdown-item" href="#">Arte Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="#">Cacao Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="#">Chamanismo</a></li>
-                                    <li><a class="dropdown-item" href="#">Danzas</a></li>
-                                    <li><a class="dropdown-item" href="#">Ecología</a></li>
-                                    <li><a class="dropdown-item" href="#">Ecoturismo en Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="#">Gastronomía</a></li>
-                                    <li><a class="dropdown-item" href="#">Historia de Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="gastronomia.html">Indígenas</a></li>
-                                    <li><a class="dropdown-item" href="#">Jaguar Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="#">Museos de Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="#">Música Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="#">Olmecas</a></li>
-                                    <li><a class="dropdown-item" href="#">Pantanos de Centla</a></li>
-                                    <li><a class="dropdown-item" href="#">Sitio Arqueológico Comalcalco</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Sitio Arqueológico Pomoná</a></li>
-                                    <li><a class="dropdown-item" href="#">Teatro Tabasco</a></li>
-                                    <li><a class="dropdown-item" href="#">Yumká</a></li>
-                                    <li><a class="dropdown-item" href="#">Zoques</a></li>
+                                    @foreach ($digital_library_categories as $digital_library_category)
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('frontend.digital_library', ['slug' => $digital_library_category->slug]) }}">{{ $digital_library_category->name }}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link  text-dark" href="contact.html"> Contactanos
+                            <li class="nav-item"><a class="nav-link  text-dark" href="contact.html">Contactanos
                                 </a>
                             </li>
                         </ul>
-
                     </nav>
                 </div>
                 <div class="modal-footer">
