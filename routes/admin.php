@@ -17,9 +17,7 @@ Route::controller(AdministratorAuthController::class)->group(function () {
 
 Route::middleware('admin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
-
-Route::middleware('admin')->group(function () {
+    
     Route::get('modulo-de-catalogos/categorias-biblioteca-digital', [CategoryController::class, 'index'])->name('category.index');
     Route::get('modulo-de-catalogos/categorias-biblioteca-digital/crear-categoria-biblioteca-digital', [CategoryController::class, 'create'])->name('category.create');
     Route::post('modulo-de-catalogos/categorias-biblioteca-digital/store', [CategoryController::class, 'store'])->name('category.store');

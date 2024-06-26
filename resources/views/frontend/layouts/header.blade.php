@@ -22,7 +22,7 @@
                             </li>
                         </ul>
                         <div class="topbar-text">
-                            Domingo 22 de Octubre de 2023
+                            {{\Carbon\Carbon::now()->isoFormat('dddd D [de] MMMM [de] YYYY')}}
                         </div>
                     </div>
                 </div>

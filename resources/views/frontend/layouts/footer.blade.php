@@ -136,8 +136,7 @@
                         <div class="col-md-12">
                             <div class="border-top-1 bg__footer-bottom-section">
                                 <p class="text-white text-center">
-                                    Copyright © 2023 Free Time</p>
-
+                                    Copyright © {{ \Carbon\Carbon::now()->year }} Free Time</p>
                             </div>
                         </div>
                     </div>
