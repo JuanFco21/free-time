@@ -27,6 +27,7 @@
                             <option value="Usuarios" {{ $permission->group_name == 'Usuarios' ? 'selected' : '' }}>Usuarios</option>
                             <option value="Roles" {{ $permission->group_name == 'Roles' ? 'selected' : '' }}>Roles</option>
                             <option value="Permisos" {{ $permission->group_name == 'Permisos' ? 'selected' : '' }}>Permisos</option>
+                            <option value="Sobre Nosotros" {{ $permission->group_name == 'Sobre Nosotros' ? 'selected' : '' }}>Sobre Nosotros</option>
                             <option value="Biblioteca Digital" {{ $permission->group_name == 'Biblioteca Digital' ? 'selected' : '' }}>Biblioteca Digital</option>
                         </select>
                         @error('group_name')

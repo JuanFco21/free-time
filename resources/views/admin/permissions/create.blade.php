@@ -26,6 +26,7 @@
                             <option value="Usuarios">Usuarios</option>
                             <option value="Roles">Roles</option>
                             <option value="Permisos">Permisos</option>
+                            <option value="Sobre Nosotros">Sobre Nosotros</option>
                             <option value="Biblioteca Digital">Biblioteca Digital</option>
                         </select>
                         @error('group_name')

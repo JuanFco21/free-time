@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\DigitalLibrary;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\About;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,13 @@ class HomeController extends Controller
             ->take(4)
             ->get();
         return view('frontend.index', compact('digital_library_categories', 'digital_libraries_carousel', 'digital_libraries_pills'));
+    }
+
+    public function aboutUs()
+    {
+        $digital_library_categories = Category::with('digital_library')->where('status', 'Activo')->get();
+        $about = About::all();
+        return view('frontend.about-us', compact('digital_library_categories', 'about'));
     }
 
     public function digitalLibraries(Request $request, string $category)

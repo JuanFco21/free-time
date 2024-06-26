@@ -18,33 +18,37 @@
                     <li class=active><a class="nav-link" href="{{ route('dashboard') }}">General Dashboard</a></li>
                 </ul>
             </li>
+            <li class="menu-header">Módulo de Contenido</li>
+            @if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->can('about.index'))
+                <li>
+                    <a class="nav-link" href="{{ route('about.index') }}"><i class="fas fa-question"></i>
+                        <span>Sobre Nosotros</span>
+                    </a>
+                </li>
+            @endif
             <li class="menu-header">Módulo de Catálogos</li>
-            @if (Auth::guard('admin')->check() &&
-                    Auth::guard('admin')->user()->can('category.index'))
+            @if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->can('category.index'))
                 <li>
                     <a class="nav-link" href="{{ route('category.index') }}"><i class="fas fa-book"></i>
                         <span>Categorias</span>
                     </a>
                 </li>
                 <li class="menu-header">Módulo de Usuarios</li>
-                @if (Auth::guard('admin')->check() &&
-                        Auth::guard('admin')->user()->can('users.index'))
+                @if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->can('users.index'))
                     <li>
                         <a class="nav-link" href="{{ route('administrator.index') }}"><i class="fas fa-users"></i>
                             <span>Administradores</span>
                         </a>
                     </li>
                 @endif
-                @if (Auth::guard('admin')->check() &&
-                        Auth::guard('admin')->user()->can('roles.index'))
+                @if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->can('roles.index'))
                     <li>
                         <a class="nav-link" href="{{ route('role.index') }}"><i class="fas fa-pencil-ruler"></i>
                             <span>Roles</span>
                         </a>
                     </li>
                 @endif
-                @if (Auth::guard('admin')->check() &&
-                        Auth::guard('admin')->user()->can('permisos.index'))
+                @if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->can('permisos.index'))
                     <li>
                         <a class="nav-link" href="{{ route('permission.index') }}"><i class="fas fa-lock"></i>
                             <span>Permisos</span>
@@ -52,8 +56,7 @@
                     </li>
                 @endif
                 <li class="menu-header">Módulo de Publicaciones</li>
-                @if (Auth::guard('admin')->check() &&
-                        Auth::guard('admin')->user()->can('digital_library.index'))
+                @if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->can('digital_library.index'))
                     <li>
                         <a class="nav-link" href="{{ route('digital_library.index') }}"><i class="fas fa-bookmark"></i>
                             <span>Biblioteca Digital</span>

@@ -16,6 +16,8 @@ use App\Http\Controllers\Frontend\HomeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('frontend.home');
 
+Route::get('/sobre-nosotros', [HomeController::class, 'aboutUs'])->name('frontend.about_us');
+
 Route::get('/biblioteca-digital/{category}', [HomeController::class, 'digitalLibraries'])->name('frontend.digital_library');
 Route::get('/biblioteca-digital/{category}/{publication}', [HomeController::class, 'digitalLibrariesDetails'])->name('frontend.digital_library_detail');
 

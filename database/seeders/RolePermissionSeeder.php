@@ -27,6 +27,8 @@ class RolePermissionSeeder extends Seeder
             ['name' => 'permisos.create', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
             ['name' => 'permisos.edit', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
             ['name' => 'permisos.destroy', 'guard_name' => 'admin', 'group_name' => 'Permisos'],
+            ['name' => 'about.index', 'guard_name' => 'admin', 'group_name' => 'Sobre Nosotros'],
+            ['name' => 'about.update', 'guard_name' => 'admin', 'group_name' => 'Sobre Nosotros'],
             ['name' => 'category.index', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital(Categoria)'],
             ['name' => 'category.create', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital(Categoria)'],
             ['name' => 'category.edit', 'guard_name' => 'admin', 'group_name' => 'Biblioteca Digital(Categoria)'],

@@ -48,12 +48,12 @@
                     </a>
                 </figure>
                 <div class="collapse navbar-collapse justify-content-between" id="main_nav99">
-                    <ul class="navbar-nav ml-auto ">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ route('frontend.home') }}">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="about-us.html"> Sobre Nosotros </a>
+                            <a class="nav-link" href="{{ route('frontend.about_us') }}"> Sobre Nosotros </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Adónde ir </a>
@@ -163,7 +163,7 @@
                                 <a class="nav-link active text-dark" href="{{ route('frontend.home') }}"> Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="about-us.html"> Sobre Nosotros </a>
+                                <a class="nav-link text-dark" href="{{ route('frontend.about_us') }}"> Sobre Nosotros </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">Adónde ir
